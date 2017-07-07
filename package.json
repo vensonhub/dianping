@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"NODE_ENV=dev webpack-dev-server --progress --colors",
-    "build":"rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors",
-    "mock":"node --harmony ./mock/server.js"
+    "start": "NODE_ENV=dev webpack-dev-server --progress --colors",
+    "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors",
+    "mock": "node --harmony ./mock/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,9 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "open-browser-webpack-plugin": "^0.0.5",
     "postcss-loader": "^2.0.6",
     "postcss-pxtorem": "^4.0.1",
     "style-loader": "^0.18.2",
