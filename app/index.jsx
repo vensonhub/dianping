@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { hashHistory } from 'react-router'
+import RouteMap from './router/routeMap.jsx'
+import fn from './redux-demo.jsx'
 import "./index.css";
 import "./index.less";
-
-class App extends React.Component{
-
-  render(){
-    return (
-      <div>
-          Hello!!!
-      </div>
-    )
-  }
-}
+fn();
 
 
-ReactDOM.render(<App/>,document.getElementById('app'));
+ReactDOM.render(<RouteMap history={hashHistory}/>,document.getElementById('app'));
