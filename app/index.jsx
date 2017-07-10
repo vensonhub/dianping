@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { hashHistory } from 'react-router'
-import RouteMap from './router/routeMap.jsx'
-import fn from './redux-demo.jsx'
-import "./index.css";
-import "./index.less";
-fn();
 
+import {Provider} from 'react-redux'
+import configureStore from './store/configureStore.js'
+import User from './containers/User'
 
-ReactDOM.render(<RouteMap history={hashHistory}/>,document.getElementById('app'));
+const store = configureStore();
+
+ReactDOM.render(
+  <Provider store={store}>
+    <User/>
+  </Provider>
+  ,document.getElementById('app'));
