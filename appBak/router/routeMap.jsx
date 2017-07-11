@@ -1,10 +1,11 @@
 import React from 'react'
 import { Router, Route,browserHistory, hashHistory, IndexRoute } from 'react-router'
 
-import App from '../containers'
+import App from '../containers/App'
 import Home from '../containers/Home'
-import NotFound from '../containers/404'
-
+import List from '../containers/List'
+import Detail from '../containers/Detail'
+import NotFound from '../containers/NotFound'
 
 class RouteMap extends React.Component {
     updateHandle() {
@@ -15,7 +16,9 @@ class RouteMap extends React.Component {
              <Router history={this.props.history} onUpdate={this.updateHandle.bind(this)}>
                 <Route path='/' component={App}>
                     <IndexRoute component={Home}/>
-                    <Route path='*' component={NotFound}/>
+                    <Route path='list' component={List}/>
+                    <Route path='detail/:id' component={Detail}/>
+                    <Route path="*" component={NotFound}/>
                 </Route>
             </Router>
         )

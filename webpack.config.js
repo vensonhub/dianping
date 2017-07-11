@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var pxtorem = require('postcss-pxtorem');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -62,7 +63,8 @@ module.exports = {
                 plugins:()=>([
                   autoprefixer({
                     browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
-                  })
+                  }),
+                  // pxtorem({ rootValue: 16, propWhiteList: [] })
                 ])
               }
             },
@@ -77,7 +79,7 @@ module.exports = {
           loader:"url-loader?limit=5000"
       },
       {
-          test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i,
+          test:/\.(woff|woff2|svg|ttf|eot)($|\?)/i,
           exclude: /node_modules/,
           loader:"url-loader?limit=5000"
       }

@@ -1,15 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {connect} from 'react-redux';
+import HomeHeader from '../../components/HomeHeader';
+import Category from '../../components/Category';
 
-class Home extends React.Component {
-  render() {
+class Home extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
     return (
       <div>
-        <p>Home</p>
-        <Link to="/list">to list</Link>
+        <HomeHeader cityName={this.props.userinfo.cityName}/>
+        <Category/>
       </div>
     )
   }
 }
 
-export default Home;
+function mapStateToProps(state){
+  return {
+    userinfo:state.userinfo
+  }
+}
+function mapDispatchToProps(dispatch){
+  return {
+
+  }
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

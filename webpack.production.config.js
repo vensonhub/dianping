@@ -79,7 +79,7 @@ module.exports = {
           loader:"url-loader?limit=5000"
       },
       {
-          test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i,
+          test:/\.(woff|woff2|svg|ttf|eot)($|\?)/i,
           exclude: /node_modules/,
           loader:"url-loader?limit=5000"
       }
