@@ -8,14 +8,14 @@ class HomeAd extends React.Component {
   render(){
     const data = this.props.data;
     return (
-      <div>
+      <div id="home-ad">
         <h2>超值特惠</h2>
-        <div>
+        <div className="ad-container clear-fix">
           {data.map((item,index)=>{
             return (
-              <div key={index}>
+              <div key={index} className="ad-item float-left">
                 <a href={item.link}>
-                  <img src={item.img} style={{width:'100px'}} alt=""/>
+                  <img src={item.img} style={{width:'100px'}} alt={item.title}/>
                 </a>
               </div>
             )
