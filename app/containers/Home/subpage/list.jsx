@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NotFound extends React.Component {
+class List extends React.Component {
   constructor(props,context) {
     super(props,context);
   }
@@ -10,4 +10,4 @@ class NotFound extends React.Component {
     )
   }
 }
-export default NotFound;
+export default List;
