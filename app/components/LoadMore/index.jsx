@@ -7,7 +7,7 @@ class LoadMore extends React.Component {
   }
   render(){
     return (
-      <div className="load-more">
+      <div className="load-more" ref="wrapper">
         {
           this.props.isLoadingMore
           ?<span>加载中...</span>
@@ -21,6 +21,27 @@ class LoadMore extends React.Component {
     this.props.loadMoreFn();
   }
 
-  
+  //下拉加载更多
+  componentDidMount(){
+    const loadMoreFn = this.props.loadMoreFn;
+    const wrapper = this.refs.wrapper;
+    let timeout;
+    function callback(){
+      const top = wrapper.getBoundingClientRect().top;
+      const windowHeight = window.screen.height;
+      if(top && top < windowHeight){
+        loadMoreFn();
+      }
+    }
+    window.addEventListener('scroll',function(){
+      if(this.props.isLoadingMore){//如果正在加载中忽略
+        return
+      }
+      if(timeout){
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(callback,50)
+    }.bind(this),false)
+  }
 }
 export default LoadMore;
