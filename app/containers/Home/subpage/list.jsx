@@ -43,7 +43,6 @@ class List extends React.Component {
     const cityName = this.props.cityName;
     const page = this.state.page; // 下一页页码
     const result = getListData(cityName,page);
-
     this.resultHandle(result);
 
     //增加page的计数
@@ -64,7 +63,6 @@ class List extends React.Component {
     result.then(res=>{
       return res.json();
     }).then(json=>{
-      console.log(json);
       const hasMore = json.hasMore;
       const data = json.data;
       //存储

@@ -3,6 +3,7 @@ import { Router, Route,browserHistory, hashHistory, IndexRoute } from 'react-rou
 
 import App from '../containers'
 import Home from '../containers/Home'
+import City from '../containers/City'
 import NotFound from '../containers/404'
 
 
@@ -15,6 +16,7 @@ class RouteMap extends React.Component {
              <Router history={this.props.history} onUpdate={this.updateHandle.bind(this)}>
                 <Route path='/' component={App}>
                     <IndexRoute component={Home}/>
+                    <Route path='/city' component={City}/>
                     <Route path='*' component={NotFound}/>
                 </Route>
             </Router>
