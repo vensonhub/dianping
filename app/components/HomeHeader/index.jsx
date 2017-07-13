@@ -1,9 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link,hashHistory} from 'react-router';
+import SearchInput from '../SearchInput';
 import './style.less';
 class HomeHeader extends React.Component{
   constructor(props,context){
     super(props,context);
+    
   }
   render(){
     return (
@@ -21,11 +23,15 @@ class HomeHeader extends React.Component{
         <div className="home-header-middle">
           <div className="search-container">
               <i className="icon-search"></i>
-              <input type="text" placeholder="请输入关键字"/>
+              <SearchInput value="" enterHandle={this.enterHandle.bind(this)}/>
           </div>
         </div>
       </div>
     )
   }
+  enterHandle(value){
+    hashHistory.push('/search/all/'+encodeURIComponent(value));
+  }
+
 }
 export default HomeHeader;
