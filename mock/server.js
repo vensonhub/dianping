@@ -7,6 +7,10 @@ var homeAdData = require('./home/ad.js');
 var homeListData = require('./home/list.js');
 // 搜索结果页 - 搜索结果 - 三个参数
 var searchListData = require('./search/list.js');
+// 详情页 - 商户信息
+const detailInfo = require('./detail/info.js');
+// 详情页 - 用户评论
+const detailComment = require('./detail/comment.js');
 
 router.get('/',function *(next){
   this.body = 'hello koa';
@@ -79,6 +83,31 @@ router.get('/api/search/:page/:city/:category', function *(next) {
 
     this.body = searchListData
 })
+// 详情页 - 商户信息
+router.get('/api/detail/info/:id', function *(next) {
+    console.log('详情页 - 商户信息')
+
+    const params = this.params
+    const id = params.id
+
+    console.log('商户id: ' + id)
+
+    this.body = detailInfo
+})
+// 详情页 - 用户评论
+router.get('/api/detail/comment/:page/:id', function *(next) {
+    console.log('详情页 - 用户点评')
+
+    const params = this.params
+    const page = params.page
+    const id = params.id
+
+    console.log('商户id: ' + id)
+    console.log('当前页数: ' + page)
+
+    this.body = detailComment
+})
+
 app.use(router.routes());
 app.use(router.allowedMethods());
 
