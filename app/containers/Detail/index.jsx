@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
+import Info from './subpage/Info';
 import './style.less';
 class Detail extends React.Component {
   constructor(props,context) {
@@ -10,6 +11,7 @@ class Detail extends React.Component {
     return (
       <div>
         <Header title="商户详情"/>
+        <Info id={id}/>
       </div>
     )
   }
