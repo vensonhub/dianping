@@ -5,7 +5,7 @@ import './style.less';
 class HomeHeader extends React.Component{
   constructor(props,context){
     super(props,context);
-    
+
   }
   render(){
     return (
@@ -18,7 +18,9 @@ class HomeHeader extends React.Component{
           </Link>
         </div>
         <div className="home-header-right float-right">
-          <i className="icon-user icon-user-size"></i>
+          <Link to="/login">
+            <i className="icon-user icon-user-size"></i>
+          </Link>
         </div>
         <div className="home-header-middle">
           <div className="search-container">
