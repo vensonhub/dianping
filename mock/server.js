@@ -11,6 +11,8 @@ var searchListData = require('./search/list.js');
 const detailInfo = require('./detail/info.js');
 // 详情页 - 用户评论
 const detailComment = require('./detail/comment.js');
+// 订单列表
+const orderList = require('./orderlist/orderList.js');
 
 router.get('/',function *(next){
   this.body = 'hello koa';
@@ -108,6 +110,16 @@ router.get('/api/detail/comment/:page/:id', function *(next) {
     this.body = detailComment
 })
 
+// 订单列表
+router.get('/api/orderlist/:username', function *(next) {
+    console.log('订单列表')
+
+    const params = this.params
+    const username = params.username
+    console.log('用户名：' + username)
+
+    this.body = orderList
+})
 app.use(router.routes());
 app.use(router.allowedMethods());
 
